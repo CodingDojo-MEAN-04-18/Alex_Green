@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>javaScript Math</title>
+</head>
+<body>
+<script>
+// Math 1
+// Write a function called zero_negativity(). This function should take an array. Return true if the input array contains no negative numbers, 
+// return false if it does.
+function zero_negativity(arr){
+    let x = true
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] < 0){
+            x = false
+            break;
+        }
+    }return x
+}
+console.log(zero_negativity([23,24,25]))
+
+// Math 2
+// Write a function called is_even(). This function should take a number. Return true if the input number is even, 
+// return false if the number is odd.
+
+function is_even(num){
+    let x = true
+    if(num % 2 != 0){
+       x = false 
+    } return x
+}
+console.log(is_even(200))
+// Math 3
+// Write a function called how_many_even(). This function should take an array. Return the total number of elements in the array that are even. 
+// You may call is_even() to solve this.
+function how_many_even(arr){
+    let x = []
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] % 2 === 0){
+            x.push(arr[i])
+        } 
+    } return x.length
+}
+console.log(how_many_even([3, 2, 4, 5, 21, 20, 99, 988, 123, 120]))
+
+// Math 4
+// Write a function called create_dummy_array(). This function should take a number n. Return an array of random numbers 
+// between 0 and 9 with the length of n.
+function create_dummy_array(n){
+    let x = []
+    for(let i = 0; i < n; i++){
+        x.push(Math.floor(Math.random() * 10))
+    } return x
+}
+console.log(create_dummy_array(22))
+// Math 5
+// Write a function called random_choice(). This function should take an array. Return a random element of the array, 
+// based on its length. This function should never return undefined.   
+function random_choice(arr){
+    let x = Math.floor(Math.random() * arr.length)
+    return arr[x];
+}    
+console.log(random_choice([23, 'random', 'floor', 'js', 45, 66, [23, 42, 57]])) 
+    
+    
+</script>
+</body>
+</html>
