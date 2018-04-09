@@ -34,7 +34,7 @@
 				// calculate our number
 				let nums = i * j;
 				// attach our table data tags around the number
-                let data;
+                // let data;
                 if (i === 0) { 
                     nums = j //if i is 0, set variable nums to j
                 };
@@ -42,9 +42,9 @@
                     nums = i 
                 };
                 if (nums === 0) {
-					data = "<td>" + "x" + "</td>";
+					var data = "<td>" + "x" + "</td>";
 				} else {
-				 	data = "<td>" + nums + "</td>";
+				 	var data = "<td>" + nums + "</td>";
 				}
 				// add it to the html
 				html_string += data;
