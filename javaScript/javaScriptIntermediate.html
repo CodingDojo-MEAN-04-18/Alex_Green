@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>javaScript Intermediate</title>
+</head>
+<body>
+<script>
+    function star_string(n){ //decalare function w/ n parameter
+        let x="" //set variable x to an empty string
+        for(let i = 0; i < n; i++){ //loop through the value of n, the argument being passed
+            x += "*" // for each loop, add a star to the string
+        }return x // return x, the final string after all stars are added
+    } 
+
+    let stars = star_string(8)
+    console.log(stars)
+
+    function draw_stars(x){ //declare a new function w/ x parameter
+        const a = [] //set constant variable a to an empty array
+        for(let i = 0; i < x.length; i++){ //loop through all items in argument/variable x
+            if(typeof x[i] === 'number'){ //check each item in array for type. If it is a number...
+            a.push(star_string(x[i])) //push the star_string function result(x) to our constant variable a
+            }else if(typeof x[i] === 'string'){ //check if the array item is a string
+                let s = "";//set s to an empty string
+                for(let c = 0; c < x[i].length; c++){ //loop through each digit in any string in the array
+                    s += x[i][0].toLowerCase(); //set variable s to itself plus each itself for each character in array item
+                }
+                a.push(s); //push s into the empty array
+            }
+        } return a;
+    }
+    let x = [4, 6, 1, 3, 5, 7, 25]
+    let y = [4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"]
+    console.log(draw_stars(x))
+    console.log(draw_stars(y))
+
+</script>
+    
+</body>
+</html>
