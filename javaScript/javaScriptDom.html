@@ -14,15 +14,24 @@
 <script>
     function appendList(array, id){
         // finish this function
-        for(let i = 0; i < array.length; i++){
-        let new_student = document.createElement("li");
-        new_student.innerHTML = array[i];
-        document.getElementById("main").appendChild(new_student)
+        for(let i = 0; i < array.length; i++){ //loop through the array
+            let new_student = document.createElement("li");//for each item in the array, create a new li element, set to variable
+            new_student.innerHTML = array[i];//set the innerhtml for each li item to that item in the array
+            document.getElementById(id).appendChild(new_student)//append the li to the main element
         }
     };
+    function superAppend(array, element, id){ //same as above, but adding in the specified element
+        for(let i = 0; i < array.length; i++){
+            let new_student = document.createElement(element);
+            new_student.innerHTML = array[i];
+            document.getElementById(id).appendChild(new_student)
+        }
+    }
+
     let students = ["Jeff", "Jenny", "Javier", "Joslyn", "Joe", "Jane", "Django"];
     let target_id = "main";
     appendList(students, target_id);
+    superAppend(students, "h1", target_id);
 </script>
 </body>
 </html>
