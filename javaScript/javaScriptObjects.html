@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>javaScript Objects</title>
+</head>
+<body>
+<script>
+    let students = [
+        {name: 'Remy', cohort: 'Jan'},
+        {name: 'Genevieve', cohort: 'March'},
+        {name: 'Chuck', cohort: 'Jan'},
+        {name: 'Osmund', cohort: 'June'},
+        {name: 'Nikki', cohort: 'June'},
+        {name: 'Boris', cohort: 'June'}
+    ];
+    for(let student in students){
+        console.log("Name: ",students[student].name,",", "Cohort: ", students[student].cohort)
+    }
+
+    let users = {
+    employees: [
+        {'first_name':  'Miguel', 'last_name' : 'Jones'},
+        {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+        {'first_name' : 'Nora', 'last_name' : 'Lu'},
+        {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+    ],
+    managers: [
+       {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+       {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+    ]
+ };
+for(let job in users){
+    console.log(job.toUpperCase()) //first iterate through the users object and log the keys
+    let count = 1; //start count at 1
+    for(let i = 0; i < users[job].length; i++){ //loop through the object keys
+        let name_length = users[job][i].last_name.length + users[job][i].first_name.length; //set variable equal to length of names
+        console.log(count +" - "+users[job][i].last_name+", "+users[job][i].first_name+" -",name_length) 
+        count += 1;
+    }
+}
+
+
+//  EMPLOYEES
+// 1 - JONES, MIGUEL - 11
+// 2 - BERTSON, ERNIE - 12
+// 3 - LU, NORA - 6
+// 4 - BARKYOUMB, SALLY - 14
+// MANAGERS
+// 1 - CHAMBERS, LILLIAN - 15
+// 2 - POE, GORDON - 9
+</script>
+</body>
+</html>
