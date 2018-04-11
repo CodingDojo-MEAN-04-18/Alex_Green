@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ninjaClass III</title>
+</head>
+<body>
+<script>
+    class Ninja {
+        constructor(name){
+            this.name = name;
+            this.health = 100;
+            this.strength = 3
+            this.speed = 3
+            console.log(this)
+        }
+        sayName() {
+            console.log(`Hi my name is ${this.name}`)
+        }
+        showStats() {
+            console.log(`Name: ${this.name}, Health: ${this.health}, Strength: ${this.strength}, Speed: ${this.speed}`)
+        }
+        drinkSake(){
+            this.health += 10
+        }
+    }
+    // Extend the Ninja class and create the Sensei class. A Sensei should have 200 Health, 10 speed, 
+    // and 10 strength by default. In addition, a Sensei should have a new attribute called wisdom, 
+    // and the default should be 10. Finally, add the speakWisdom() method. 
+    // speakWisdom() should call the drinkSake() method from the Ninja class, before console.logging a wise message.
+    class Sensei extends Ninja {
+        constructor(name) {
+            super(name);
+            this.health = 200;
+            this.strength = 10;
+            this.speed = 10;
+        }
+        speakWisdom(){
+            let drink = super.drinkSake();
+            drink;
+            console.log("Don't eat the yellow snow")
+            return this
+        }
+    }
+
+    const alex = new Ninja("alex")
+    alex.sayName()
+    alex.drinkSake()
+    const kenta = new Sensei("Kenta")
+    kenta.speakWisdom().speakWisdom()
+    kenta.showStats()
+
+
+</script>
+    
+</body>
+</html>

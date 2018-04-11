@@ -9,8 +9,8 @@
 <body>
 <script>
     function Ninja(name) {
-        const speed = 3;
-        const strength = 3;
+        let speed = 3;
+        let strength = 3;
         this.name = name;
         this.health = 100
         this.sayName = function() {
@@ -27,6 +27,7 @@
             if(ninja instanceof Ninja){
             ninja.health -= 5;
             console.log(ninja.name + " was punched by " + this.name + " and lost 5 health")
+            return this
         }
         }
         this.kick = function(ninja) {
@@ -34,6 +35,7 @@
             kick_power = strength * 15;
             ninja.health -= kick_power;
             console.log(ninja.name + " was kicked by " + this.name + " and lost " + kick_power + " health")
+            return this
         }
         }
     }
