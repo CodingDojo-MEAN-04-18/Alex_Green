@@ -8,7 +8,7 @@
 </head>
 <body>
 <script>
-    function ninjaClass(name) {
+    function Ninja(name) {
         const speed = 3;
         const strength = 3;
         this.name = name;
@@ -21,14 +21,35 @@
         }
         this.drinkSake = function() {
             this.health += 10
+            return this
+        }
+        this.punch = function(ninja) {
+            if(ninja instanceof Ninja){
+            ninja.health -= 5;
+            console.log(ninja.name + " was punched by " + this.name + " and lost 5 health")
+        }
+        }
+        this.kick = function(ninja) {
+            if(ninja instanceof Ninja) {
+            kick_power = strength * 15;
+            ninja.health -= kick_power;
+            console.log(ninja.name + " was kicked by " + this.name + " and lost " + kick_power + " health")
+        }
         }
     }
-    const alex = new ninjaClass("alex")
+    const alex = new Ninja("alex")
+    const kenta = new Ninja("kenta")
     alex.sayName()
     alex.showStats()
-    alex.drinkSake()
-    alex.drinkSake()
+    alex.drinkSake().drinkSake().drinkSake()
     alex.showStats()
+    alex.punch(kenta)
+    kenta.showStats()
+    alex.kick(kenta)
+    kenta.kick(alex)
+    alex.showStats()
+    kenta.showStats()
+    console.log(alex instanceof Ninja)
 </script>
 </body>
 </html>
