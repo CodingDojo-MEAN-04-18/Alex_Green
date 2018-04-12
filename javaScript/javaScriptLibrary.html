@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>javaScript Library</title>
+</head>
+<body>
+<script>
+    var _ = {
+        map: function(arr, fun) {
+            let x = []
+            for (let i = 0; i < arr.length; i++){
+                x.push(fun(arr[i]))
+            } return x
+          //code here;
+        },
+        reduce: function(arr) { 
+            let x = 0;
+            for(let i = 0; i < arr.length; i++) {
+                x += arr[i]
+            } return x
+          // code here;
+        },
+        find: function(arr, fun) {
+            let x;
+            for(let i = 0; i < arr.length; i++) {
+                if(fun(arr[i]) === true){
+                    return arr[i]
+                }
+            }   
+          // code here;
+        },
+        filter: function(arr, fun) { 
+            let x = []
+            for(let i = 0; i < arr.length; i++){
+                if(fun(arr[i]) === true){
+                    x.push(arr[i])
+                }
+            }return x                
+        },
+        reject: function(arr, fun) { 
+            let x = [];
+            for(let i = 0; i < arr.length; i++){
+                if(fun(arr[i]) === false){
+                    x.push(arr[i])
+                }
+            }return x
+          // code here;
+        }
+      }
+     // you just created a library with 5 methods!
+     var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+    console.log(evens); // if things are working right, this will return [2,4,6].
+
+    var even = _.find([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+    console.log(even); //should return 2
+
+    var odds = _.reject([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+    console.log(odds); //should return [1,3,5]
+
+    var sum = _.reduce([1, 2, 3]);
+    console.log(sum); //should return 6
+
+    var mappy = _.map([1, 2, 3], function(num){ return num * 12; });
+    console.log(mappy)
+</script>
+</body>
+</html>
