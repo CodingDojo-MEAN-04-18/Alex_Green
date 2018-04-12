@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deck of Cards</title>
+</head>
+<body>
+<script>
+     class Deck {
+            constructor() {
+                this.deck = [];
+            }
+
+            reset() {
+                this.deck = [];
+                const suits = ['Clubs', 'Hearts', 'Diamonds', 'Spades'];
+                const values = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
+
+                for (const suit of suits) {
+                    for (const value of values) {
+                        this.deck.push(`${ value } of ${ suit }`);
+                    }
+                }
+
+                return this.deck;
+            }
+            deal() {
+                return this.deck.pop();
+                
+            }
+            shuffle() {
+                let m = this.deck.length, t, i;
+
+                // While there remain elements to shuffle…
+                while (m) {
+
+                    // Pick a remaining element…
+                    i = Math.floor(Math.random() * m--);
+
+                    // And swap it with the current element.
+                    t = this.deck[m];
+                    this.deck[m] = this.deck[i];
+                    this.deck[i] = t;
+                }
+
+                return this;
+                }
+        }
+
+        class Player {
+            constructor(name) {
+                this.name = name;
+                this.hand = [];
+            }
+            take(deck) {
+                this.hand.push(deck.deal());
+                return this;
+            }
+            discard() {
+                this.hand.pop();
+                return this
+            }
+        }
+    const player1 = new Player("Alex")
+    const deck1 = new Deck()
+    deck1.reset()
+    deck1.shuffle()
+    player1.take(deck1).take(deck1)
+    console.log(player1.hand)
+    player1.discard()
+    console.log(player1.hand)
+    
+    console.log(deck1)
+    
+</script>
+    <!-- Create a Deck class. A deck should have the following functionality:
+        
+The Deck should contain the 52 standard cards
+The Deck should be able to shuffle
+The Deck should be able to reset
+The Deck should be able to deal a random card
+Deal should return the card that was dealt and remove it from the deck -->
+</body>
+</html>
