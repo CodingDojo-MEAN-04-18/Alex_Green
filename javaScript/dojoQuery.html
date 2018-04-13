@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dojoQuery</title>
+</head>
+<body>
+    <button id="someIdForSomeButton">Clickit</button>
+    <button id="someOtherIdForSomeOtherButton">Hover over this one</button>
+<script>
+    function $Dojo(id) { 
+        this.myId = document.getElementById(id); 
+        this.click = function (click) {
+            this.myId.addEventListener("click", click);
+        };
+    
+        this.hover = function (hoverin, hoverout) {
+            this.myId.addEventListener("mouseover", hoverin);
+            this.myId.addEventListener("click", hoverout);
+        };
+    
+        return this;
+    }
+
+  // this doesn't quite work. Both parameters hoverin and hoverout are being passed into hover
+
+    $Dojo("someIdForSomeButton").click(function() { console.log("The button was clicked!") });
+    $Dojo("someOtherIdForSomeOtherButton").hover(function() { console.log("The button was hovered on!"); console.log("unhovered button") });
+</script>
+</body>
+</html>
