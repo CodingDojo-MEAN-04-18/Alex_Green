@@ -8,7 +8,14 @@ module.exports = function(request, response){
             response.write(contents);
             response.end();
         });
-    }else if(path.dirname(request.url) === '/images'){
+    }else if(path.dirname(request.url) === '/views'){
+        fs.readFile('.'+request.url, function(errors, contents){
+            response.writeHead(200, {'Content-type': 'text/html'});
+            response.write(contents);
+            response.end();
+        })
+    }
+    else if(path.dirname(request.url) === '/images'){
         fs.readFile('.'+request.url, function(errors, contents){
             response.writeHead(200, {'Content-type': 'img/jpg'})
             response.write(contents);
@@ -21,6 +28,6 @@ module.exports = function(request, response){
             response.end();
         })
     }else{
-        response.end("This doesn't look like anything at all")
+        response.end("This doesn't look like anything at")
     }
 }
