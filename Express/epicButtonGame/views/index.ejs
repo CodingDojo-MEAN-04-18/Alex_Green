@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js" type="text/javascript"></script>
+    <script>
+    $(document).ready(function(){
+        var socket = io.connect();
+     
+        $('#plusOne').click(function(){
+            console.log("plus one clicked")
+            socket.emit("plus_one")
+        });
+        $('#reset').click(function(){
+            socket.emit("reset_count")
+        });
+        socket.on("update_count", function(data){
+            console.log(data.count)
+            $("#pushCount").html(`<h2>The button has been pushed ${data.count} times</h2>`)
+        });
+
+    });    
+    </script>
+</head>
+<body>
+    <div id="pushCount">
+        <h2>The button has been pushed 0 times</h2>
+    </div>
+    <h4>Push the button to update the count!</h4>
+    <button class="btn-primary" style="padding: 15px;" id="plusOne">Push the epic button</button>
+    <hr>
+    <button class="btn-danger" id="reset">Reset count</button>
+</body>
+</html>
