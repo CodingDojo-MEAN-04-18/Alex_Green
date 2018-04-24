@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>surveyForm 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js" type="text/javascript"></script>
+    <script>
+    $(document).ready(function(){
+        var socket = io.connect();
+        $('form').submit(function(){
+                socket.emit("posting_form", {
+                    name: $('#name').val(),
+                    location: $('#location').val(),
+                    favlang: $('#favlang').val(),
+                    comment: $('#comment').val()
+                });
+                return false
+            });
+            socket.on('updated_message', function(data){
+                $('#message').html('You submitted this info to the server: '+JSON.stringify(data.response))
+            });
+            socket.on('random_number', function(data){
+                $('#message').append('<br>Your magic number is ' + JSON.stringify(data.response))
+            })
+    });
+    </script>
+</head>
+<body>
+    <div id="message"></div>
+    <form action="/process" method="post">
+        Your Name: <br><input type="text" name="name" id="name"><br>
+        Dojo Location: <br><select name="location" id="location">
+            <option value="mountainview">Mountain View</option>
+            <option value="bellevue">Bellevue</option>
+            <option value="online">Online</option>
+        </select><br>
+        Favorite Language: <br><select name="favlang" id="favlang">
+            <option value="javascript">Javascript</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+        </select><br>
+        Comments: <br><textarea name="comment" id="comment" cols="30" rows="10"></textarea><br>
+        <input type="submit" value="Submit">
+
+    </form>
+    
+</body>
+</html>
