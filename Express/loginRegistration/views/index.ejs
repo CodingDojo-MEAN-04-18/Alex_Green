@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>loginRegistration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+    <div class="col-md-2">
+        <h2>Registration</h2>
+        <form action="/processRegistration" method="post">
+            <label for="email">Email: </label><br>
+            <input type="text" name="email" id=""><br>
+            <label for="firstName">First Name: </label><br>
+            <input type="text" name="firstName" id=""><br>
+            <label for="lastName">Last Name: </label><br>
+            <input type="text" name="lastName" id=""><br>
+            <label for="password">Password: </label><br>
+            <input type="password" name="password" id=""><br>
+            <label for="pwConfirm">Confirm Password: </label><br>
+            <input type="password" name="pwConfirm" id=""><br>
+            <label for="bday">Birthday: </label><br>
+            <input type="date" name="bday" id=""><br>
+            <input class="btn-primary" type="submit" value="Register">
+        </form>
+    </div>
+    <div class="col-md-2">
+        <h2>Login</h2>
+        <form action="/processLogin" method="post">
+            <label for="email">Email:</label><br>
+            <input type="text" name="email" id=""><br>
+            <label for="password">Password: </label><br>
+            <input type="password" name="password" id=""><br>
+            <input class="btn-primary" type="submit" value="Login">
+        </form>
+        <% if(typeof(errors) != 'undefined' ) { %>
+            <% for (var x in errors) { %>
+            <p style="font-weight: bold;" class="text-danger"><%= errors[x].message %></p>
+            <% } %>
+        <% } %>
+    </div>
+    
+    <div class="col-md-8"></div>
+    </div>    
+</div>
+    
+</body>
+</html>
