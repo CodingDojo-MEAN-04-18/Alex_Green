@@ -12,51 +12,18 @@ app.use(bodyParser.urlencoded ({ extender: true }));
 app.set('views',path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
-app.get('/', function(req, res){
-    res.render('index');
-});
 
-app.get('/quotes', function(req, res){
-    Quote.find({}, function(err, quotes){
-        if(err){
-            console.log("trouble finding quotes")
-            res.redirect("/")
-        } else {
-            res.render('quotes', {quotes: quotes});
-        }
-    })
-})
+// mongoose.connect('mongodb://localhost/quotingDojo')
+// mongoose.connection.on('connected', function(){
+//     console.log('connected to mongodb')
+// })
+require('./server/config/mongoose.js')
 
-// save form entry
-app.post('/process', function(req, res){
-    const quote = new Quote({
-        name: req.body.name,
-        quote: req.body.quote,
-    })
+// require models/schemas
+require('./server/models/quote.js')
+// require routes from routes.js
+require('./server/config/routes.js')(app);
 
-    quote.save(function(err){
-        if(err){
-            //do error stuff
-            console.log(err)
-            res.render('index', {errors: quote.errors})
-        } else {
-            console.log("success", req.body.name, req.body.quote)
-            res.redirect('/quotes')
-        }
-    })
-})
-
-mongoose.connect('mongodb://localhost/quotingDojo')
-// make a schema
-// add validations
-const quoteSchema = new Schema({
-    name: {type: String, required: true, minlength: 2},
-    quote: {type: String, required: true, minlength: 10},
-}, {timestamps: true});
-
-// make a model
-mongoose.model('Quote', quoteSchema);
-const Quote = mongoose.model('Quote');
 
 app.listen(port, function(){
     console.log(`listening on port: ${port}`)
