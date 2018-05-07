@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div [ngStyle] = "{
+  'width': '700px',
+  'height': '300px',
+  'border': 'solid black 1px',
+  'margin': 'auto'
+}">
+<h1>Dojo Mail</h1>
+<table>
+  <thead>
+    <th [ngClass] = "{'allHeaders': true}">Email</th>
+    <th [ngClass] = "{'allHeaders': true}">Importance</th>
+    <th [ngClass] = "{'allHeaders': true}">Subject</th>
+    <th [ngClass] = "{'allHeaders': true}">Content</th>
+  </thead>
+  <tr *ngFor='let email of emails'>
+    <td>{{ email.email }}</td>
+    <td *ngIf='email.importance'>High</td>
+    <td *ngIf='!email.importance'>Low</td>
+    <td>{{ email.subject }}</td>
+    <td>{{ email.content }}</td>
+    
+  </tr>
+</table>
+</div>
+
