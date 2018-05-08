@@ -1,0 +1,4 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div *ngFor='let buttonId of allButtons'>
+  <button [ngClass]="{'clickedButtonOn': buttonId.clicked}" (click)='onButtonClick(buttonId)' id={{buttonId.id}}>OFF</button>
+</div>
