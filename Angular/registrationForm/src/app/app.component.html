@@ -1,0 +1,106 @@
+<h1>Registration</h1>
+<div id="wrapper">
+  <h3>Account Information</h3>
+  <div id="welcomeBox" *ngIf="thisUser.length > 0">Thank you for registering with us {{thisUser[0].firstName}}. 
+    We just sent you a confirmation email at {{thisUser[0].email}}
+  </div>
+  <form name="thisForm" id="thisForm" #formData='ngForm' (submit)="onSubmitForm()">
+
+    <label for="firstName">First Name: </label>
+    <input type="text" name="firstName" 
+    required
+    minlength="2"
+    [(ngModel)]="user.firstName"
+    #firstName="ngModel"
+    >
+    <div class="error" *ngIf="firstName.touched && firstName.invalid">First name is required</div>
+    <br>
+
+    <label for="lastName">Last Name: </label>
+    <input type="text" name="lastName"
+    required
+    [(ngModel)]="user.lastName"
+    #lastName="ngModel"
+    >
+    <div class="error" *ngIf="lastName.touched && lastName.invalid">Last name is required</div>    
+    <br>
+
+    <label for="email">Email: </label>
+    <input type="email" name="email"
+    required
+    [(ngModel)]="user.email"
+    #email="ngModel"
+    > 
+    <div class="error" *ngIf="email.touched && email.invalid">Valid email is required</div>    
+    <br>
+
+    <label for="password">Password: </label>
+    <input type="password" name="password"
+    required
+    minlength="10"
+    [(ngModel)]="user.password"
+    #password="ngModel"
+    >
+    <div class="error" *ngIf="password.touched && password.invalid">Password must be atleast 10 characters</div>
+    <br>
+
+    <label for="pwConfirm">Password Confirmation: </label>
+    <input type="password" name="pwConfirm"
+    required
+    
+    >
+    <br>
+
+    <label for="address">Street Address: </label>
+    <input type="text" name="address"
+    required
+    [(ngModel)]="user.address"
+    #address="ngModel"
+    >
+    <div class="error" *ngIf="address.touched && address.invalid">Address is required</div>    
+    <br>
+
+    <label for="apt">Unit/Apt#: </label>
+    <input type="text" name="apt"
+    [(ngModel)]="user.apt"
+    #apt="ngModel"
+    >
+    <br>
+
+    <label for="city">City: </label>
+    <input type="text" name="city"
+    required
+    [(ngModel)]="user.city"
+    #city="ngModel"
+    >
+    <div class="error" *ngIf="city.touched && city.invalid">City is required</div>    
+    <br>
+
+    <label for="state">State: </label>
+    <select name="state"
+    required
+    [(ngModel)]="user.state"
+    #state="ngModel">
+      <option value="wa">Washington</option>
+      <option value="or">Oregon</option>
+      <option value="ga">Georgia</option>
+      <option value="ny">New York</option>
+    </select>
+    <div class="error" *ngIf="city.touched && city.invalid">Choose a state</div>    
+    <br>
+
+    <label for="feelings">I'm feeling lucky: </label>
+    <input type="radio" name="lucky"
+    required
+    [(ngModel)]="user.lucky"
+    #lucky="ngModel"
+    value="yes">yes
+    <input type="radio" name="lucky"
+    required
+    [(ngModel)]="user.lucky"
+    value="no">no
+    <div class="error" *ngIf="lucky.touched && lucky.invalid">You must feel either lucky or unlucky</div>    
+    <br>
+  </form>
+</div>
+<input *ngIf="formData.valid" type="submit" form="thisForm" value="Register" id="submitButton"/>
