@@ -1,0 +1,8 @@
+#alphaWrapper{
+    border: solid 1px black;
+    display: inline-block;
+    width: 350px;
+    height: 300px;
+    vertical-align: top;
+    margin: 5px;
+}
