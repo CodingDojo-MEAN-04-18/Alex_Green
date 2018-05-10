@@ -1,0 +1,11 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h4, select, input {
+    display: inline-block;
+    margin: 5px;
+}
+fieldset {
+    display: inline-block;
+    vertical-align: top;
+}

@@ -1,0 +1,32 @@
+<fieldset>
+  <legend>Human Component</legend>
+  <p>Power Level: {{ allPowerLevels[0] }}</p>
+</fieldset>
+
+<fieldset>
+  <legend>Saiyan Component</legend>
+  <p>Power Level: {{ allPowerLevels[1] }}</p>
+</fieldset>
+
+<fieldset>
+  <legend>Super Saiyan Component</legend>
+  <p>Power Level: {{ allPowerLevels[2] }}</p>
+</fieldset>
+
+<fieldset>
+  <legend>Super Saiyan 2 Component</legend>
+  <p>Power Level: {{ allPowerLevels[3] }}</p>
+  <h3 *ngIf="allPowerLevels[3] > 9000 && allPowerLevels[3] <= 20000">"Over 9000!"</h3>
+</fieldset>
+
+<fieldset>
+  <legend>Super Saiyan 3 Component</legend>
+  <p>Power Level: {{ allPowerLevels[4] }}</p>
+  <h3 *ngIf="allPowerLevels[4] > 20000">"Superlative!"</h3>
+</fieldset>
+
+<fieldset>
+  <legend>Super Saiyan 4 Component</legend>
+  <p>Power Level: {{ allPowerLevels[5] }}</p>
+  <h3 *ngIf="allPowerLevels[5] >= 50000">"The One!"</h3>
+</fieldset>

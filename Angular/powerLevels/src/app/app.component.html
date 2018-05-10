@@ -1,0 +1,16 @@
+<fieldset>
+  <legend>Power Component</legend>
+  <form (submit)="calculatePowerLevels()">
+    <label for="powerLevel"><h4>Initial Power Level: </h4></label>
+    <input type="number"
+    name="initialPowerLevel"
+    required
+    min="1"
+    max="100"
+    [(ngModel)]='powerLevel.pL'
+    >
+    <input type="submit" value="Calculate Powers">
+  </form>
+  <app-powers [currentNumber] = 'selectedNumber'></app-powers>
+</fieldset>
+
