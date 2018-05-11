@@ -25,8 +25,8 @@
 </div>
 <hr>
 <h1>Quotes List</h1>
-<!-- needs custom pipe for sorting by highest score -->
-<div class="listQuotes" *ngFor="let quote of allQuotes">
+
+<div class="listQuotes" *ngFor="let quote of allQuotes | orderby:'score':'desc'">
   <p class="eachQuote">{{quote.quote}}</p>
   <p class="eachQuote">-{{quote.author}}</p>
 
