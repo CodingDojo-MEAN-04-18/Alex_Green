@@ -1,0 +1,75 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#getQuotes {
+    display: inline-block;
+    padding: 10px;
+}
+#tArea {
+    display: block;
+    margin-bottom: 10px;
+    
+}
+input {
+    float: right;
+    display: block;
+    text-align: right;
+
+}
+
+label {
+    margin-left: 230px;
+}
+
+.listQuotes {
+    width: 550px;
+    height: 150px;
+    border: solid 3px black;
+    border-radius: 2px;
+    padding: 10px;
+    overflow: scroll;
+    margin: 2px;
+}
+
+.eachQuote {
+    width: 300px;
+    margin: 0px;
+    display: inline-block;
+}
+
+.votes {
+    display: inline-block;
+    width: 200px;
+    height: 100px;
+    float: right;
+    padding: 5px;
+}
+
+.score {
+    width: 50px;
+    display: inline-block;
+    text-align: center;
+}
+
+.voteButtons {
+    width: 140px;
+    display: inline-block;
+}
+
+.upvote {
+    padding: 5px;
+    background-color: #B6D7A8;
+    display: block;
+    width: 100px;
+    margin: 2px;
+    border-radius: 2px;
+}
+
+.downvote {
+    padding: 5px;
+    background-color: #EA9999;
+    width: 100px;
+    margin: 2px;
+    border-radius: 2px;
+}

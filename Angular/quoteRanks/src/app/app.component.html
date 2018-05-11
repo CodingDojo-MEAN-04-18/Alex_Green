@@ -1,0 +1,42 @@
+<h1>Add a quote</h1>
+<div id="getQuotes">
+  <form (submit)="onFormSubmit()" name="quoteForm" #quoteForm='ngForm'>
+
+    <textarea id="tArea" name="quote" cols="70" rows="4" 
+      required
+      minlength="10"
+      [(ngModel)] = 'newQuote.quote'
+      #quote = 'ngModel'
+    ></textarea>
+
+    <label for="author">Author: </label>
+    <input type="text" name="author" id=""
+      required
+      minlength="2"
+      [(ngModel)] = 'newQuote.author'
+      #author = 'ngModel'
+    >
+
+    <br><br>
+
+    <input *ngIf='quoteForm.valid' type="submit" value="Submit Quote">
+
+  </form>
+</div>
+<hr>
+<h1>Quotes List</h1>
+<!-- needs custom pipe for sorting by highest score -->
+<div class="listQuotes" *ngFor="let quote of allQuotes">
+  <p class="eachQuote">{{quote.quote}}</p>
+  <p class="eachQuote">-{{quote.author}}</p>
+
+  <div class="votes">
+    <div class="score"><h3>{{quote.score}}</h3></div>
+    <div class="voteButtons">
+      <button (click)="onUpVote(quote)" class="upvote">upVote!</button>
+      <button (click)="onDownVote(quote)" class="downvote">downVote!</button>
+    </div>
+  </div>
+</div>
+
+
