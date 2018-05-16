@@ -17,7 +17,7 @@ export class WashingtonComponent implements OnInit {
   constructor(private getWeatherService: GetWeatherService) { }
 
   ngOnInit() {this.getWeatherService.getWeather(this.city).subscribe(
-    currentCity => {
+    (currentCity:any = {}) => {
       this.currentTemp = currentCity.main.temp;
       this.humidity = currentCity.main.humidity;
       this.status = currentCity.weather[0].description;
