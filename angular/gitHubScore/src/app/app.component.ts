@@ -21,7 +21,7 @@ export class AppComponent implements OnInit{
       // console.log(form, "form")   
       // console.log(this.username, "new test")
       this.gitHubService.getUserInfo(this.username).subscribe(
-        user => { this.thisUser = user; 
+        (user:any = {}) => { this.thisUser = user; 
         console.log("user name from component", user);
         this.score = user.followers + user.public_repos
       }

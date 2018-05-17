@@ -12,12 +12,5 @@ export class GitHubService {
 
 getUserInfo(username:string){
    return this.http.get(`https://api.github.com/users/${ username }`)
-  //.subscribe(
-  //   (userObj: any[]) => {
-  //     this.user.next(userObj)
-  //     console.log(userObj, "User object from service")
-  //     console.log(this.user)
-  //     }
-  // );
 }
 }
