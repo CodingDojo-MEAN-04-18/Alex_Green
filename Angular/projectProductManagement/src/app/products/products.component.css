@@ -1,0 +1,28 @@
+.eachProduct {
+    width: 150px;
+    /* height: 200px; */
+    border: solid 3px gray;
+    padding: 5px;
+    margin: 5px;
+    display: inline-block;
+    text-align: center;
+}
+
+.forImages {
+    width: 130px;
+    height: 130px;
+
+}
+
+img {
+    max-width: 130px;
+    max-height: 130px
+}
+
+button {
+    display: block;
+    margin: auto;
+    width: 100px;
+    margin-bottom: 5px;
+    color: black;
+}

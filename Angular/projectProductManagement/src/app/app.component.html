@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Project Product Management</h1>
+  <a [routerLink]="['']">Home </a>|
+  <a [routerLink]="['products']">Product List </a>|
+  <a [routerLink]="['products', 'new']">Product Creation</a>
+  <hr>
+  <div style="overflow-y: scroll; padding: 20px; height: 400px; border: solid 2px black; background-color: #E8F1F2">
+    <router-outlet></router-outlet>
+  </div>
+</div>
