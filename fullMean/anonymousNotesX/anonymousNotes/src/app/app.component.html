@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Anonymous Notes</h1>
+  <form #thisForm='ngForm' name="newNote" (submit)="onFormSubmit()">
+    <label for="note">Note: </label>
+    <input type="text" name="note"
+    required
+    minlength="3"
+    [(ngModel)]="allNotes.note"
+    #note="ngModel">
+  
+    <input class="btn-primary" type="submit" value="Add Note">
+  </form>
+  <div id="showNotes">
+    <!-- div for all notes -->
+    <div class="eachNote" *ngFor='let note of notes'>
+      <p>{{note.note}}</p>
+      <p>{{note.createdAt | date: "medium"}}</p>
+    </div>
+  </div>
+</div>
