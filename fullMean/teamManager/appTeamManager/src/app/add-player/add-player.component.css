@@ -1,0 +1,15 @@
+.wrapper {
+    padding: 15px;
+}
+
+.content {
+    width: 80%;
+    height: 200px;
+    border: solid 1px black;
+    background-color: lightgray;
+    padding: 10px;
+}
+
+label {
+    width: 200px;
+}

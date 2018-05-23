@@ -1,0 +1,11 @@
+.container {
+    padding: 15px;
+    background-color: lightgray;
+}
+
+.content {
+    width: 80%;
+    height: 400px;
+    border: solid 1px black;
+    background-color: white;
+}

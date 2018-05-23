@@ -1,0 +1,52 @@
+<h1 *ngIf="game1">Player Status - Game 1</h1>
+<h1 *ngIf="game2">Player Status - Game 2</h1>
+<h1 *ngIf="game3">Player Status - Game 3</h1>
+
+
+<a (click)="getGameOne(1)">Game 1 |</a>
+<a (click)="getGameTwo(2)">Game 2 |</a>
+<a (click)="getGameThree(3)">Game 3</a>
+
+<table class="table-striped table-lg">
+    <thead>
+        <th>Player Name</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of allPlayers">
+            <td>{{player.name}}</td>
+            <td *ngIf="game1">
+              <button *ngIf="player.gameOne == 'playing'" style="background-color: green;">playing</button>
+              <button *ngIf="player.gameOne !== 'playing'" (click)="gameStatus(player, 'playing', 'gameOne')">playing</button>
+              
+              <button *ngIf="player.gameOne == 'notPlaying'" style="background-color: red;">not playing</button>
+              <button *ngIf="player.gameOne !== 'notPlaying'" (click)="gameStatus(player, 'notPlaying', 'gameOne')">not playing</button>
+
+              <button *ngIf="player.gameOne == 'undecided'" style="background-color: yellow;">undecided</button>
+              <button *ngIf="player.gameOne !== 'undecided'" (click)="gameStatus(player, 'undecided', 'gameOne')">undecided</button>
+            
+            </td>
+            <td *ngIf="game2">
+              <button *ngIf="player.gameTwo == 'playing'" style="background-color: green;">playing</button>
+              <button *ngIf="player.gameTwo !== 'playing'" (click)="gameStatus(player, 'playing', 'gameTwo')">playing</button>
+              
+              <button *ngIf="player.gameTwo == 'notPlaying'" style="background-color: red;">not playing</button>
+              <button *ngIf="player.gameTwo !== 'notPlaying'" (click)="gameStatus(player, 'notPlaying', 'gameTwo')">not playing</button>
+
+              <button *ngIf="player.gameTwo == 'undecided'" style="background-color: yellow;">undecided</button>
+              <button *ngIf="player.gameTwo !== 'undecided'" (click)="gameStatus(player, 'undecided', 'gameTwo')">undecided</button>
+            </td>
+
+            <td *ngIf="game3">
+              <button *ngIf="player.gameThree == 'playing'" style="background-color: green;">playing</button>
+              <button *ngIf="player.gameThree !== 'playing'" (click)="gameStatus(player, 'playing', 'gameThree')">playing</button>
+              
+              <button *ngIf="player.gameThree == 'notPlaying'" style="background-color: red;">not playing</button>
+              <button *ngIf="player.gameThree !== 'notPlaying'" (click)="gameStatus(player, 'notPlaying', 'gameThree')">not playing</button>
+
+              <button *ngIf="player.gameThree == 'undecided'" style="background-color: yellow;">undecided</button>
+              <button *ngIf="player.gameThree !== 'undecided'" (click)="gameStatus(player, 'undecided', 'gameThree')">undecided</button>
+              </td>
+        </tr>
+    </tbody>
+</table>
