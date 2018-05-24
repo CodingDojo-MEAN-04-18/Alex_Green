@@ -20,6 +20,15 @@ export class AddPlayerComponent implements OnInit {
   addPlayers(){
     console.log("submitting form", this.newPlayer)
     this.playerService.addPlayers(this.newPlayer)
+    .subscribe(
+      (response) => {
+        this.playerService.getPlayers();
+        // this.allPlayers = response;
+      },
+      (err) => {
+        console.log("error in list component delete player", err)
+      }
+    ) 
     console.log("addPlayComponent > after adding in service")
     this.newPlayer.name = '';
     this.newPlayer.position = '';

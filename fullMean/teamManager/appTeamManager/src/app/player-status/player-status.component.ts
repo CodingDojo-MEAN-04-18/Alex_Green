@@ -17,11 +17,8 @@ export class PlayerStatusComponent implements OnInit {
 
   constructor(private playerService: PlayerManagementService) { 
     
-    this.playerService.subject.subscribe(
-      (players) => {
-        this.allPlayers = players
-      }
-    )
+    console.log(this.playerService)
+    
   }
   thisGame:number;
 
@@ -49,11 +46,30 @@ export class PlayerStatusComponent implements OnInit {
   gameStatus(player, status, game){
     console.log(player, status, game)
     this.playerService.editPlayer(player, status, game)
+    .subscribe()    
     this.playerService.getPlayers()
+    .subscribe(
+      (response) => {
+        console.log("success in list component! delete player", response);
+        this.allPlayers = response;
+      },
+      (err) => {
+        console.log("error in list component!!", err)
+      }
+    )
   }
 
   ngOnInit() {
     this.playerService.getPlayers()
-  }
+    .subscribe(
+      (response) => {
+        console.log("success in list component!", response);
+        this.allPlayers = response;
+      },
+      (err) => {
+        console.log("error in list component!!", err)
+      }
+    )
+}
 
 }

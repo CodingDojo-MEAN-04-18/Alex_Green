@@ -52,7 +52,7 @@ app.get('/allPlayers', function(req, res){
     Player.find({}, function(err, players){
         console.log(players)
         if(err){
-            console.log(err);
+            console.log("ERROR IN GET ALLPLAYERS SERVER.JS", err);
         } else {
             console.log("successfully retrieved players")
             res.json(players)
@@ -87,7 +87,7 @@ app.post('/deletePlayer', function(req, res){
     })
 })
 
-app.post('/editPlayer/:id/:game/:status', function(req, res){
+app.put('/editPlayer/:id/:game/:status', function(req, res){
     console.log("editing", req.params.id, req.params.status)
     Player.findOneAndUpdate({_id: req.params.id},{[req.params.game]: req.params.status}, function(err){
         if(err){

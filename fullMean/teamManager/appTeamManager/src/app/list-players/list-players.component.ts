@@ -7,18 +7,23 @@ import { PlayerManagementService } from '../player-management.service'
   styleUrls: ['./list-players.component.css']
 })
 export class ListPlayersComponent implements OnInit {
-  allPlayers = []
+  allPlayers:any = []
 
   constructor(private playerService: PlayerManagementService) {
-    this.playerService.subject.subscribe(
-    (players) => {
-      this.allPlayers = players
-    }
-  ) 
+  
 }
 
   ngOnInit() {
     this.playerService.getPlayers()
+    .subscribe(
+      (response) => {
+        console.log("success in list component!", response);
+        this.allPlayers = response;
+      },
+      (err) => {
+        console.log("error in list component!!", err)
+      }
+    )
   }
 
   deletePlayer(player){
@@ -26,7 +31,17 @@ export class ListPlayersComponent implements OnInit {
     if (confirm == true){
     console.log("You pushed confirm to delete ", player)
     this.playerService.deletePlayer(player)
+    .subscribe()    
     this.playerService.getPlayers()
+    .subscribe(
+      (response) => {
+        console.log("success in list component! delete player", response);
+        this.allPlayers = response;
+      },
+      (err) => {
+        console.log("error in list component!!", err)
+      }
+    )
     
     } else {
       console.log("you cancelled")
