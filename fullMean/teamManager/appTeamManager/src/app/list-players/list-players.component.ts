@@ -29,7 +29,7 @@ export class ListPlayersComponent implements OnInit {
   deletePlayer(player){
     let confirm = window.confirm(`Are you sure you want to delete ${player.name}?`)
     if (confirm == true){
-    console.log("You pushed confirm to delete ", player)
+    console.log("You pushed confirm to delete ", player.name)
     this.playerService.deletePlayer(player)
     .subscribe()    
     this.playerService.getPlayers()

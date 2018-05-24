@@ -14,8 +14,8 @@ export class PlayerManagementService {
   }
 
   deletePlayer(player) {
-    console.log("before hitting deleteplayer in server.js")
-    return this.http.post('/deletePlayer', player)
+    console.log("before hitting deleteplayer in server.js", player.name, player._id)
+    return this.http.delete('/deletePlayer/'+player._id)
 
   }
 
@@ -27,6 +27,7 @@ export class PlayerManagementService {
 
   addPlayers(player){
     return this.http.post('/processPlayer', player)
+
   }
 
 }

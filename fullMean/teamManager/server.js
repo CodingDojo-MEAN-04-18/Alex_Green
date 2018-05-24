@@ -70,19 +70,22 @@ app.post('/processPlayer', function(req, res){
     player.save(function(err){
         if(err){
             console.log("error while saving new player", err)
+            res.json(err)
         } else {
             console.log("successful player save")
+            res.json({message: "successful player save json"})
         }
     })
 })
 
-app.post('/deletePlayer', function(req, res){
+app.delete('/deletePlayer/:id', function(req, res){
     console.log("deleting", req.body.name)
-    Player.remove({_id: req.body._id}, function(err){
+    Player.findByIdAndRemove(req.params.id, function(err){
         if(err){
             console.log("error in deletion")
         } else {
             console.log("deleted successfully")
+            res.json({message: "successful player delete json"})
         }
     })
 })
@@ -94,6 +97,7 @@ app.put('/editPlayer/:id/:game/:status', function(req, res){
             console.log("error in edit to playing", err)
         } else {
             console.log("successfull edit")
+            res.json({message: "successful edit json"})
         }
     })
 })

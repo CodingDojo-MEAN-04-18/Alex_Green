@@ -22,8 +22,8 @@ export class AddPlayerComponent implements OnInit {
     this.playerService.addPlayers(this.newPlayer)
     .subscribe(
       (response) => {
-        this.playerService.getPlayers();
-        // this.allPlayers = response;
+        // this.playerService.getPlayers();
+        console.log("from add player",response)
       },
       (err) => {
         console.log("error in list component delete player", err)
