@@ -33,6 +33,7 @@ export class AppComponent {
   onFormSubmit(){
     console.log("submitting form", this.allNotes.note)
     this.noteService.addNote(this.allNotes)
+    .subscribe()
     this.noteService.getNotes().subscribe(
       (res:any) => {
         console.log("response", res)

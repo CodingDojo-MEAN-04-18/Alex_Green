@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+// import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
-  data: BehaviorSubject<any[]> = new BehaviorSubject([]);;
+  // data: BehaviorSubject<any[]> = new BehaviorSubject([]);;
 
   constructor(private http:HttpClient) { }
 
@@ -16,10 +16,8 @@ export class NotesService {
   }
 
   addNote(note){
-    this.http.post('/processNote', note).subscribe(
-      data => {
-        console.log("posted it!")
-      }
-    )
+    console.log("NotesService > addNote", note)
+    return this.http.post('/processNote', note)
+   
   }
 }
